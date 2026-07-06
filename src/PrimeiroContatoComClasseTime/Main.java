@@ -1,4 +1,8 @@
+package PrimeiroContatoComClasseTime;
+
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
@@ -20,5 +24,10 @@ public class Main {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         System.out.println("Data compra formatada: " + dataCompra.format(formato));
+
+        ZonedDateTime dataConclusaoCompra = ZonedDateTime.now();
+        System.out.println("Data conclusao compra formatada: " + dataConclusaoCompra);
+        ZonedDateTime dataCompraNy = dataConclusaoCompra.withZoneSameInstant(ZoneId.of("America/New_York"));
+        System.out.println("Data conclusao compra formatada NY: " + dataCompraNy);
     }
 }
