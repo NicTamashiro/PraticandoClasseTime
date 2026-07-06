@@ -1,8 +1,6 @@
 package PrimeiroContatoComClasseTime;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
@@ -29,5 +27,15 @@ public class Main {
         System.out.println("Data conclusao compra formatada: " + dataConclusaoCompra);
         ZonedDateTime dataCompraNy = dataConclusaoCompra.withZoneSameInstant(ZoneId.of("America/New_York"));
         System.out.println("Data conclusao compra formatada NY: " + dataCompraNy);
+
+        LocalTime inicio = LocalTime.of(9,0);
+        LocalTime fim = LocalTime.of(17,30);
+
+        Duration duracao = Duration.between(inicio, fim);
+        System.out.println("Duracao: " + duracao.toHours() + " horas e " + duracao.toMinutesPart() + " minutos.");
+
+        LocalDate dataPagamento = LocalDate.parse("2026-10-30");
+        Period periodo = Period.between(dataCompra, dataPagamento);
+        System.out.println("Diferenca em dias: " + periodo.getDays() + " | meses: " + periodo.getMonths());
     }
 }
